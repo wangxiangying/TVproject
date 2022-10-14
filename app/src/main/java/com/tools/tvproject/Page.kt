@@ -267,7 +267,6 @@ open class Page : AppCompatActivity(), BaseView {
 
     @SuppressLint("SimpleDateFormat")
     private fun initView() {
-
         todayPanel = findViewById(R.id.todayPanel)
         rechargeList = findViewById(R.id.rechargeList)
         consumptionsList = findViewById(R.id.consumptionsList)
