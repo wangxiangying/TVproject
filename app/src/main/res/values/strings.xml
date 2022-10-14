@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TVProject</string>
+    <string name="app_name">今日播报</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

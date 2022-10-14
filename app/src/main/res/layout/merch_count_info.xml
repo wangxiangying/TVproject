@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingTop="1dip"
+    android:paddingRight="3dip">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageIV"
+            android:layout_width="16dip"
+            android:layout_height="16dip"
+            android:layout_gravity="center"
+            android:background="#ffffff"
+            android:src="@drawable/shoujinbi" />
+
+        <TextView
+            android:id="@+id/bigTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:gravity="center|left"
+            android:maxEms="12"
+            android:paddingLeft="2dip"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/smallTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="2dip"
+            android:text="Received"
+            android:textColor="#F44336"
+            android:textSize="11dip" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="2dip"
+            android:paddingRight="2dip"
+            android:text="笔"
+            android:textColor="#333333"
+            android:textSize="11dip" />
+    </LinearLayout>
+
+</LinearLayout>

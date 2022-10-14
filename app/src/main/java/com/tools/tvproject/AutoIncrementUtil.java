@@ -9,6 +9,7 @@ public class AutoIncrementUtil {
     public static final String FLOATTYPE="FloatType";
     public static final String INTTYPE="IntType";
 
+
     public static void startAnimation(String type,final TextView tvView,float floatValue
             ,boolean isRoundUp,final String danwei,int duration){
         ValueAnimator animator=null;

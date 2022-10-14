@@ -1,0 +1,16 @@
+schema: ./api.graphql
+documents: ''
+extensions:
+  codegen:
+    generates:
+      ./generated-backend.ts:
+        plugins:
+          - java
+          - java-kotlin
+      ./graphql:
+        plugins:
+          - java
+          - java-kotlin
+          - java-apollo-android
+  diff:
+    baseSchema: your-base-schema-here

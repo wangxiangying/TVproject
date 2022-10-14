@@ -1,0 +1,34 @@
+#获取商户分类
+
+fragment PodcastDailyBean on PodcastDaily {
+    amount
+    createTime
+    merchantLogo
+    merchantName
+    totalConsumption
+    userAvatar
+    userName
+    lat
+    lng
+}
+
+
+
+query getPodcastDailySummary($rechargeTime : Long,  $consumptionTime : Long)
+{
+    getPodcastDailySummary(rechargeTime:$rechargeTime ,  consumptionTime:$consumptionTime){
+    consumptionAmount
+    consumptionNumber
+    newUsersNumber
+    rechargeAmount
+    consumptions{
+        ...PodcastDailyBean
+    }
+    merchants {
+        ...PodcastDailyBean
+    }
+    recharges{
+        ...PodcastDailyBean
+    }
+}
+}

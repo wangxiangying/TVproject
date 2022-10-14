@@ -3,13 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19444444444444445" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.34010416666666665" />
         <entry key="app/src/main/res/layout/activity_fullscreen.xml" value="0.19548022598870057" />
+        <entry key="app/src/main/res/layout/icon.xml" value="1.0" />
         <entry key="app/src/main/res/layout/label_info.xml" value="0.3671875" />
-        <entry key="app/src/main/res/layout/layout_show_info.xml" value="0.21301398897838067" />
-        <entry key="app/src/main/res/layout/merch_info.xml" value="0.30520833333333336" />
-        <entry key="app/src/main/res/layout/user_info.xml" value="0.30520833333333336" />
+        <entry key="app/src/main/res/layout/layout_show_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/merch_count_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/merch_info.xml" value="0.21245421245421245" />
+        <entry key="app/src/main/res/layout/user_info.xml" value="0.33569739952718675" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11388888888888889" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11388888888888889" />
       </map>
     </option>
   </component>

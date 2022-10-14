@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "graphql:codegen": "graphql codegen",
+    "graphql:coverage": "graphql coverage",
+    "graphql:validate": "graphql validate"
+  },
+  "devDependencies": {
+    "graphql-cli": "4.1.0",
+    "@graphql-cli/codegen": "1.17.10",
+    "@graphql-codegen/java-apollo-android": "1.17.8",
+    "@graphql-cli/coverage": "2.1.0",
+    "@graphql-cli/validate": "2.1.0"
+  }
+}

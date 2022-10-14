@@ -6,7 +6,6 @@ public class NumUtil {
 
     private NumUtil(){
 
-
     }
 
     public static String FormatFloat(float value){
@@ -25,4 +24,6 @@ public class NumUtil {
             return String.valueOf(i);
         }
     }
+
+
 }

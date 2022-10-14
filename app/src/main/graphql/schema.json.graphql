@@ -1,0 +1,1294 @@
+## This file was generated based on "schema.json". Do not edit manually.
+#
+#schema {
+#    query: Query
+#    mutation: Mutation
+#}
+#
+#type Advert {
+#    bigImgUrl: String
+#    endTime: Long
+#    eventContent: String
+#    eventType: Int
+#    imgUrl: String
+#    startTime: Long
+#    status: Int
+#    type: Int
+#}
+#
+#type AdvertsResult {
+#    list: [Advert]
+#}
+#
+#type AppMenuBarResult {
+#    "可用状态菜单图标"
+#    availableIcon: String
+#    "禁用状态菜单图标"
+#    disableIcon: String
+#    "跳转地址"
+#    href: String
+#    "菜单名称"
+#    name: String
+#}
+#
+#type Badge {
+#    "颜色 十六进制"
+#    color: String
+#    createTime: Long
+#    id: ID!
+#    "key 客户端根据此key 做展示"
+#    key: String!
+#    "备注"
+#    note: String!
+#    "类型"
+#    type: ID!
+#    updateTime: Long
+#}
+#
+#type BuyCardRechargeInfo {
+#    "卡名称"
+#    cardName: String
+#    "购卡数量"
+#    nums: Int
+#    "储值列表"
+#    rechargeInfoList: [RechargeInfo]
+#}
+#
+#type CardBaseInfo {
+#    "卡余额 + 赠送金额"
+#    amount: String!
+#    "卡号"
+#    cardNumber: String!
+#    "来自"
+#    fromUser: UserBaseInfo
+#    "ID"
+#    id: Long!
+#    "卡状态"
+#    status: CardStatus!
+#    "卡样式"
+#    style: CardStyle
+#}
+#
+#"卡折扣规则"
+#type CardDiscountRule {
+#    "折扣要求金额 xxx元减y元"
+#    baseAmount: String!
+#    "折扣金额"
+#    discountAmount: String!
+#    "折扣ID"
+#    id: Long!
+#    "备注"
+#    note: String!
+#    "折扣类型"
+#    type: CardDiscountType!
+#}
+#
+#type CardPageResult {
+#    list: [CardBaseInfo]
+#    pagination: Pagination
+#}
+#
+#"付款码结果"
+#type CardPayCodeResult {
+#    "条形码"
+#    barCode: String
+#    "付款码"
+#    payCode: String
+#    "二维码"
+#    qrCode: String
+#}
+#
+#"卡充值记录Vo"
+#type CardRechargeRecordVo {
+#    "金额"
+#    amount: String
+#    "卡号"
+#    cardNumber: String
+#    "快照：优惠金额"
+#    discountAmount: String
+#    "快照：扣款储值要求金额"
+#    discountBaseAmount: String
+#    "快照：充值折扣打折率"
+#    discountRate: Int
+#    "折扣规则ID, 后台可以修改，遂存一下快照"
+#    discountRuleId: Long
+#    "赠送金额"
+#    giftAmount: String
+#    "充值总金额"
+#    rechargeAmount: String
+#}
+#
+#"赠送记录"
+#type CardTransferPageResult {
+#    list: [CardTransferRecord]
+#    pagination: Pagination
+#}
+#
+#"卡分享/领取记录"
+#type CardTransferRecord {
+#    "分享时总金额"
+#    cardAmount: String
+#    "卡号"
+#    cardNumber: String
+#    "分享时间"
+#    createTime: Long
+#    "分享人"
+#    fromUser: UserBaseInfo
+#    "记录ID"
+#    id: String
+#    "状态"
+#    status: CardTransferStatus
+#    "领取时总金额"
+#    takeAmount: String
+#    "领取人"
+#    toUser: UserBaseInfo
+#}
+#
+#type CheckUpdateResult {
+#    latest: Boolean
+#    latestVersion: ClientUpdateSerttings
+#}
+#
+#type ClientUpdateSerttings {
+#    "客户端类型"
+#    clientType: ClientType
+#    "更新说明"
+#    content: String
+#    "发版时间"
+#    releaseTime: Long
+#    "提醒频率: APP_OPEN-每次启动 DAILY-每天 WEEKLY-每周 MONTHLY-每月"
+#    remindFrequency: RemindFrequency
+#    "大小"
+#    size: String
+#    "更新动作: DOWNLOAD-直接下载 VISIT-访问下载页面,如应用宝"
+#    updateAction: UpdateAction
+#    "更新方式: REMIND-提示更新 FORCE-强制更新 NO_REMIND-不提示更新"
+#    updatePolicy: UpdatePolicy
+#    "apk下载地址或应用市场页面"
+#    url: String
+#    "版本"
+#    version: String
+#}
+#
+#type ConsumeInfo {
+#    "消费后"
+#    afterCardAmount: String
+#    "订单总额(打折前)"
+#    amount: String
+#    "消费卡金额"
+#    cardAmount: String
+#    "折扣金额"
+#    discountAmount: String
+#    "抵扣赠送金额"
+#    giftAmount: String
+#    "饭折卡消费才有 消费的店家ID"
+#    merchantId: String
+#    "商户名称"
+#    merchantName: String
+#    "实际消费金额"
+#    realAmount: String
+#    "消费前"
+#    sourceCardAmount: String
+#}
+#
+#type CouponPlanDetail {
+#    buyAmount: BigDecimal
+#    des: String
+#    disAmount: BigDecimal
+#    disRate: BigDecimal
+#    miniConsum: BigDecimal
+#    name: String
+#    type: Int
+#    validityDay: Int
+#}
+#
+#"创建消费订单结果"
+#type CustomerOrderResult {
+#    "卡号"
+#    cardNumber: String
+#    "优惠金额"
+#    discountAmount: String
+#    "折扣利率"
+#    discountRate: String
+#    "订单总金额"
+#    orderAmount: String
+#    "订单号 使用该订单号完成扣款"
+#    orderId: String
+#    "实际扣款金额"
+#    realAmount: String
+#    "折扣利率"
+#    transactionOrderId: String
+#}
+#
+#type InvitePageResult {
+#    list: [InviteRalationVo]
+#    pagination: Pagination
+#}
+#
+#type InviteRabateTotalVo {
+#    count: Int
+#    rebateAmt: BigDecimal
+#}
+#
+#type InviteRabateVo {
+#    amount: BigDecimal!
+#    createTime: Long!
+#    invitedUser: UserSummary
+#    rebateType: Int!
+#    updateTime: Long!
+#}
+#
+#type InviteRalationVo {
+#    createTime: Long!
+#    invitedUser: UserSummary
+#    updateTime: Long!
+#}
+#
+#type InviteRebatePageResult {
+#    list: [InviteRabateVo]
+#    pagination: Pagination
+#}
+#
+#type LoginResult {
+#    "手机号"
+#    phone: String
+#    "小程序sessionKey"
+#    sessionKey: String
+#    "Token"
+#    token: String!
+#}
+#
+#type Merchant {
+#    "商户地址"
+#    address: String!
+#    "人均"
+#    avg: Float
+#    "品牌"
+#    brand: String
+#    "营业状态"
+#    businessStatus: BusinessStatus
+#    "营业状态显示字符串"
+#    businessStatusStr: String
+#    "营业时间"
+#    businessTime: String
+#    "商户类型"
+#    category: String
+#    "是否连锁"
+#    chain: Boolean
+#    "市"
+#    city: String
+#    "是否收藏(登陆状态会有这个属性)"
+#    collected: Boolean
+#    "联系人"
+#    contact: String
+#    "商户折扣信息"
+#    discounts: [MerchantDiscount]
+#    "距离，单位米"
+#    distance: Long
+#    highlightDiscount: Int
+#    "加密ID"
+#    id: String!
+#    "纬度"
+#    lat: String
+#    "经度"
+#    lng: String
+#    "商户Logo"
+#    logo: String
+#    "商编"
+#    merchantNumber: String!
+#    "商户名称"
+#    name: String!
+#    paySwitch: Int
+#    "省"
+#    province: String
+#    "收款二维码"
+#    qrCodeContent: String!
+#    "商圈"
+#    region: String
+#    "评分"
+#    star: Int
+#    "标签"
+#    tags: String
+#    "联系电话"
+#    telephone: String
+#}
+#
+#type MerchantBrandHome {
+#    "加密ID"
+#    brandId: String!
+#    "品牌logo"
+#    logo: String
+#    "品牌名称"
+#    name: String
+#}
+#
+#type MerchantBrandHomeVo {
+#    categoryName: String!
+#    list: [MerchantBrandHome]
+#}
+#
+#type MerchantCategory {
+#    id: Long!
+#    name: String!
+#}
+#
+#type MerchantDiscount {
+#    "折扣系数"
+#    discountName: String!
+#    "优惠名称"
+#    name: String!
+#    "销量"
+#    sales: Long
+#    "使用提示"
+#    tips: String
+#    "折扣类型 大会员专享 FanZhe 买单即享 Merchant"
+#    type: String!
+#}
+#
+#type MerchantGroupBrand {
+#    "连锁"
+#    chain: Boolean
+#    "加密的品牌ID"
+#    externalId: String
+#    "业态"
+#    formats: String
+#    "logo"
+#    logo: String
+#    """
+#
+#    id: ID
+#    集团id
+#    groupId: Long
+#    品牌名称
+#    """
+#    name: String
+#    """
+#
+#    首字母
+#    firstLetter: String
+#    status: Int
+#    品牌类型
+#    """
+#    type: Int
+#}
+#
+#"搜索页商家品牌展示"
+#type MerchantGroupBrandBanner {
+#    "商家品牌总数"
+#    count: Int
+#    "9个品牌logo"
+#    merchantGroupBrandList: [MerchantGroupBrand]
+#}
+#
+#type MerchantGroupBrandResult {
+#    firstLetter: String
+#    merchantGroupBrands: [MerchantGroupBrand]
+#}
+#
+#type MerchantPageResult {
+#    list: [Merchant]
+#    pagination: Pagination
+#}
+#
+#type MerchantReviews {
+#    "用户头像"
+#    avatar: String
+#    "内容"
+#    content: String
+#    "时间"
+#    createTime: Long
+#    "加密ID"
+#    id: String!
+#    "图片"
+#    images: [String]
+#    "用户姓名"
+#    name: String
+#    "评论加密ID"
+#    reviewsId: String!
+#    "分数"
+#    score: Float
+#}
+#
+#"商户评价结果"
+#type MerchantReviewsPageResult {
+#    list: [MerchantReviews]
+#    pagination: Pagination
+#}
+#
+#type MiniprogramUser {
+#    "头像"
+#    avatar: String
+#    "用户赠送资产"
+#    giftAmount: String
+#    "加密的用户ID"
+#    id: String
+#    "昵称"
+#    name: String
+#    "手机号，如果没有则走更新手机号流程"
+#    phone: String
+#}
+#
+#type Mutation {
+#    "添加商户评论"
+#    addMerchantReviews(merchantReviewsInput: MerchantReviewsInput): Boolean
+#    "运营商登陆"
+#    aliyunLogin(token: String!): LoginResult!
+#    "微信登陆后绑定手机号"
+#    bindPhone(bindPhoneInput: BindPhoneInput!): LoginResult!
+#    "手机号登陆绑定微信"
+#    bindWx(code: String!): UserSummary
+#    "更换手机号"
+#    changePhone(
+#        "短信code"
+#        code: String!,
+#        "短信key"
+#        key: String!,
+#        "新手机号"
+#        phone: String!
+#    ): Boolean
+#    "生成分享邀请关系"
+#    checkInviteRelation(destUser: String!, scene: String!): Boolean
+#    "生成商户分享邀请关系"
+#    checkMerchInviteRelation(destUser: String!, scene: String!): Boolean
+#    "收藏/取消收藏店铺"
+#    collectMerchant(collectMerchantInput: CollectMerchantInput!): Boolean
+#    "创建购卡充值订单 返回支付订单号 拿此订单号发起微信支付"
+#    createBuyCardOrder(
+#        "开卡数量"
+#        cardNum: Int!,
+#        "折扣ID"
+#        discountRule: Long!,
+#        "订单金额"
+#        orderAmount: BigDecimal
+#    ): String
+#    "创建支付C扫B付款订单"
+#    createCustomerOrder(
+#        "付款金额"
+#        amount: BigDecimal!,
+#        "商户编号"
+#        merchantNumber: String!,
+#        "商户操作人ID"
+#        merchantOperatorId: String,
+#        "商户收款二维码URL"
+#        merchantQR: String!,
+#        "付款方式类型"
+#        paymentChannelType: PaymentChannelType!,
+#        "付款方式ID"
+#        paymentId: String!
+#    ): CustomerOrderResult!
+#    "创建储值消费订单"
+#    createRechargeConsumeOrder(
+#        "卡号"
+#        cardNumber: String!,
+#        "消费金额"
+#        consumeAmount: BigDecimal!,
+#        "折扣ID"
+#        discountRule: Long!,
+#        "商户编号"
+#        merchantNumber: String!,
+#        "商户操作人ID"
+#        merchantOperatorId: String!,
+#        "充值金额"
+#        rechargeAmount: BigDecimal!
+#    ): String
+#    "创建单张卡的充值订单"
+#    createRechargeOrder(
+#        "卡号"
+#        cardNumber: String!,
+#        "折扣ID"
+#        discountRule: Long!,
+#        "订单金额"
+#        orderAmount: BigDecimal
+#    ): String
+#    "创建微信支付订单"
+#    createWeChatPayRechargeOrder(
+#        "储值订单号"
+#        orderId: String!,
+#        "平台 APP or MicroAPP"
+#        platform: String!
+#    ): WeChatPayOrderResult
+#    "生成邀请二维码"
+#    getUserQrcodeImg(page: String!, scene: String!): String
+#    "合并卡"
+#    mergeCard(mergeCardInput: MergeCardInput!): Boolean
+#    "小程序登陆"
+#    miniprogramLogin(code: String!): LoginResult!
+#    "根据订单号发起付款 如果成功则返回订单交易记录详情的ID"
+#    payCustomerOrder(
+#        "支付订单号"
+#        orderId: String!
+#    ): String
+#    "兑换码激活"
+#    regCouponCode(code: String!): Boolean
+#    "分享卡"
+#    shareCard(
+#        "卡号"
+#        cardNumber: String!
+#    ): ShareMiniProgramObject
+#    "模拟根据付款码扣款 仅测试环境使用"
+#    simulationConsume(
+#        "商户ID"
+#        merchantId: String!,
+#        "付款金额"
+#        orderAmount: BigDecimal!,
+#        "支付码"
+#        payCode: String!
+#    ): String!
+#    "模拟支付订单 仅测试环境可用"
+#    simulationPayOrder(
+#        "订单号"
+#        orderId: String!
+#    ): String!
+#    "短信登陆"
+#    smsLogin(smsLoginInput: SmsLoginInput!): LoginResult!
+#    "发送短信, VERIFY_PHONE不需要传入手机号"
+#    smsSend(phone: String, scene: SmsSceneType!): SmsResult
+#    "领取卡"
+#    takeCard(
+#        "分享码"
+#        shareCode: String!
+#    ): Boolean
+#    "统一文件上传"
+#    unifiedUpload(file: Upload!): String
+#    "更新小程序手机号"
+#    updateMiniprogramPhone(channel: String, encryptedData: String, iv: String, sessionKey: String): LoginResult!
+#    "更新小程序用户信息"
+#    updateMiniprogramProfile(avatarUrl: String, city: String, country: String, gender: Int, nickName: String, province: String): MiniprogramUser
+#    "更新用户信息"
+#    updateProfile(
+#        "头像"
+#        avatar: String,
+#        "生日"
+#        birtyday: Long,
+#        "昵称"
+#        name: String
+#    ): Boolean
+#    "查询手机号是否已注册，true-已注册"
+#    userRegistered(
+#        "手机号"
+#        phone: String!
+#    ): Boolean
+#    "验证用户当前手机号"
+#    verifyPhone(
+#        "短信code"
+#        code: String!,
+#        "短信key"
+#        key: String!
+#    ): Boolean
+#    "微信登录"
+#    wechatLogin(code: String!): LoginResult!
+#}
+#
+#type OrderDetails {
+#    "购卡列表"
+#    buyCardRechargeInfo: [BuyCardRechargeInfo]
+#    "消费信息"
+#    consumeInfo: ConsumeInfo
+#    "过期时间"
+#    expiredTime: Long
+#    "订单信息"
+#    orderInfo: OrderInfo
+#    "储值信息"
+#    rechargeInfo: RechargeInfo
+#    "状态"
+#    status: OrderStatus
+#    "流水类型:1-充值 2-消费 3-退款"
+#    transactionType: TransactionType
+#}
+#
+#type OrderInfo {
+#    "饭折卡储值 才有卡号 原型图显示只要后4位"
+#    cardNumber: String
+#    "创建时间"
+#    createTime: Long
+#    "订单ID"
+#    orderId: String
+#    "1-现金 2-刷卡 3-饭折卡 4-支付宝 5-微信"
+#    payType: OrderPayType
+#    "1-现金 2-刷卡 3-饭折卡 4-支付宝 5-微信"
+#    payTypeStr: String
+#    "退款方式"
+#    refundStr: String
+#    "第三方退款订单号"
+#    refundThirdPartyOrderId: String
+#    "第三方交易订单号"
+#    thirdPartyOrderId: String
+#}
+#
+#type OrderPageResult {
+#    list: [OrderVo]
+#    pagination: Pagination
+#}
+#
+#type OrderVo {
+#    "支付金额"
+#    amount: String
+#    "消耗卡余额"
+#    cardAmount: String
+#    "购卡数量"
+#    cardCount: Int
+#    "饭折卡储值 才有卡号 原型图显示只要后4位"
+#    cardNumber: String
+#    "卡充值记录 可以为多条"
+#    cardRechargeRecordVos: [CardRechargeRecordVo]
+#    "创建时间"
+#    createTime: Long
+#    "优惠金额"
+#    discountAmount: String
+#    "过期时间"
+#    expiredTime: Long
+#    "饭折卡消费才有 消费的店家ID"
+#    merchantId: Long
+#    "商户Logo"
+#    merchantLogo: String
+#    "商户名称"
+#    merchantName: String
+#    "商户操作人员ID"
+#    merchantOperatorId: Long
+#    "订单ID"
+#    orderId: String
+#    "订单类型:1-商家扫用户 2-用户扫商家"
+#    orderType: OrderType
+#    "1-现金 2-刷卡 3-饭折卡 4-支付宝 5-微信"
+#    payType: OrderPayType
+#    "1-现金 2-刷卡 3-饭折卡 4-支付宝 5-微信"
+#    payTypeStr: String
+#    "状态 处理中(10)  交易成功(20) 退款(30) 已过期(40) 已删除(90)"
+#    status: OrderStatus
+#    "状态 处理中(10)  交易成功(20) 退款(30) 已过期(40) 已删除(90)"
+#    statusStr: String
+#    "流水类型:1-充值 2-消费 3-退款"
+#    transactionType: TransactionType
+#    "修改时间"
+#    updateTime: Long
+#    "用户ID"
+#    userId: Long
+#}
+#
+#type Pagination {
+#    current: Long
+#    pageSize: Long
+#    total: Long
+#    totalPage: Long
+#}
+#
+#type PaymentChannel {
+#    "余额"
+#    amount: String
+#    "卡号"
+#    cardNumber: String!
+#    "图标(可空)"
+#    icon: String
+#    "支付渠道ID"
+#    id: String!
+#    "是否默认支付方式"
+#    isDefault: Boolean
+#    "名称"
+#    name: String!
+#    "类型"
+#    type: PaymentChannelType!
+#}
+#
+#type PodcastDaily {
+#    amount: String
+#    createTime: Long
+#    lat: String
+#    lng: String
+#    merchantLogo: String
+#    merchantName: String
+#    totalConsumption: Int
+#    userAvatar: String
+#    userName: String
+#}
+#
+#type PodcastDailySummaryResult {
+#    "消费金额"
+#    consumptionAmount: String
+#    "消费笔数"
+#    consumptionNumber: Int
+#    "消费信息"
+#    consumptions: [PodcastDaily]
+#    "标记时间"
+#    markTime: Long
+#    "店铺消费信息"
+#    merchants: [PodcastDaily]
+#    "新增用户数"
+#    newUsersNumber: Int
+#    "充值金额"
+#    rechargeAmount: String
+#    "储值信息"
+#    recharges: [PodcastDaily]
+#}
+#
+#type Query {
+#    "获取品牌下的商户"
+#    brandMerchantListPage(
+#        "品牌ID"
+#        brandId: String,
+#        current: Int,
+#        lat: String,
+#        lng: String,
+#        pageSize: Int
+#    ): MerchantPageResult
+#    "计算折扣金额"
+#    calculationDiscount(
+#        "付款金额"
+#        amount: BigDecimal!,
+#        "商户编号"
+#        merchantNumber: String!,
+#        "付款方式类型"
+#        paymentChannelType: PaymentChannelType!,
+#        "付款方式ID"
+#        paymentId: String!
+#    ): RuleResult
+#    checkUpdate: CheckUpdateResult
+#    "收藏店铺列表"
+#    collectMerchantListPage(current: Int, lat: String, lng: String, pageSize: Int): MerchantPageResult
+#    getActivityAppMenuBar: AppMenuBarResult
+#    getAdvertsResult: AdvertsResult
+#    getAliyunKey: String!
+#    "获取所有badge"
+#    getAllBadge: [Badge]
+#    "获取品牌列表品牌列表"
+#    getAllOrder(
+#        "当前页"
+#        current: Int!,
+#        "每页显示大小"
+#        pageSize: Int!,
+#        "订单状态 不传则为所有订单"
+#        status: OrderStatus
+#    ): OrderPageResult
+#    "获取指定类型"
+#    getBadge(key: BadgeKey): Badge
+#    "获取我的饭折卡"
+#    getCardByUserId: CardPageResult
+#    "获取折扣规则"
+#    getCardDiscountRule(
+#        "方案类型 1 充值 2 购卡"
+#        planType: CardDiscountPlanType
+#    ): [CardDiscountRule]
+#    "赠送记录"
+#    getCardTransferRecord(
+#        "页码"
+#        current: Int,
+#        "每页大小"
+#        pageSize: Int
+#    ): CardTransferPageResult
+#    "获取当前小程序用户"
+#    getCurrentMiniprogramUser: MiniprogramUser
+#    "获取当前用户"
+#    getCurrentUser: UserSummary
+#    "根据兑换码获取优惠券"
+#    getDetailByCode(code: String!): CouponPlanDetail
+#    getInvitePageResult(
+#        "当前页"
+#        current: Int,
+#        "数量"
+#        pageSize: Int
+#    ): InvitePageResult
+#    getInviteRebatePageResult(
+#        "当前页"
+#        current: Int,
+#        "数量"
+#        pageSize: Int
+#    ): InviteRebatePageResult
+#    "生成商户邀请二维码"
+#    getMerchQrcodeImg(page: String!, scene: String!): String
+#    "获取商户品牌首页信息"
+#    getMerchantBrandHomeInfo: [MerchantBrandHomeVo]
+#    "获取搜索页面商家品牌墙"
+#    getMerchantGroupBrandBanner: MerchantGroupBrandBanner
+#    "获取商户详细信息"
+#    getMerchantInfo(
+#        "商户ID"
+#        id: String,
+#        "纬度"
+#        lat: String,
+#        "经度"
+#        lng: String
+#    ): Merchant
+#    "获取商户评论"
+#    getMerchantReviewsInfo(
+#        "页码"
+#        current: Int,
+#        "商户ID"
+#        id: String,
+#        "每页大小"
+#        pageSize: Int
+#    ): MerchantReviewsPageResult
+#    "获取商户分享信息"
+#    getMerchantShareParam(
+#        "商户ID"
+#        id: String
+#    ): ShareMiniProgramObject
+#    "获取订单详情"
+#    getOrderDetails(
+#        "订单ID"
+#        orderId: String
+#    ): OrderDetails
+#    "获取用户卡的支付码"
+#    getPayCode(
+#        "支付渠道ID"
+#        id: String!,
+#        "支付渠道类型"
+#        paymentChannelType: PaymentChannelType!,
+#        "是否显示图片"
+#        showImage: Boolean!
+#    ): CardPayCodeResult
+#    getPayOpen(
+#        "代码"
+#        code: String
+#    ): Boolean
+#    "获取饭折支付方式列表"
+#    getPaymentChannel: [PaymentChannel]
+#    "播报每日汇总"
+#    getPodcastDailySummary(
+#        "消费时间戳"
+#        consumptionTime: Long,
+#        "充值时间戳"
+#        rechargeTime: Long
+#    ): PodcastDailySummaryResult
+#    getRebateTotalResult: RebateTotalResult
+#    getRechargeConsumeDiscountRule(
+#        "付款金额"
+#        amount: BigDecimal!,
+#        "商户编号"
+#        merchantNumber: String!,
+#        "付款方式类型"
+#        paymentChannelType: PaymentChannelType!,
+#        "付款方式ID"
+#        paymentId: String!
+#    ): [RechargeConsumeDiscountRule]
+#    "获取分享卡信息"
+#    getShareCardInfo(
+#        "分享码"
+#        shareCode: String!
+#    ): ShareCardInfo
+#    "获取用户当前卡的摘要信息"
+#    getUserCardSummary: UserCardSummary
+#    getUserCouponPageResult(current: Int, pageSize: Int, status: String): UserCouponPageResult
+#    "获取商户分类"
+#    merchantCategoryList(
+#        "节点ID,如果不选传0返回父节点"
+#        parent: Long
+#    ): [MerchantCategory]
+#    "获取品牌列表品牌列表"
+#    merchantGroupBrandList: [MerchantGroupBrandResult]
+#    "获取附近商户"
+#    merchantListPage(
+#        "主分类ID,如果不选分类类似附近商户传0"
+#        categoryId: Long,
+#        "子分类ID"
+#        childType: Long,
+#        "市ID,暂时不传,后端默认北京"
+#        cityId: String,
+#        "页码"
+#        current: Int,
+#        "纬度"
+#        lat: String,
+#        "经度"
+#        lng: String,
+#        "每页大小"
+#        pageSize: Int,
+#        "省ID,暂时不传，后端默认北京"
+#        provinceId: String
+#    ): MerchantPageResult
+#    "解析商户二位码"
+#    resolveMerchantQR(
+#        "商户二维码结果"
+#        merchantQR: String!
+#    ): ResolveMerchantQRResult
+#    "搜索"
+#    search(keyword: String!, lat: String, lng: String): [SearchResult]
+#}
+#
+#type RebateTotalResult {
+#    inviteRabateTotalVo: InviteRabateTotalVo
+#}
+#
+#"储值且消费的折扣规则"
+#type RechargeConsumeDiscountRule {
+#    "显示的提示信息"
+#    badge: String
+#    "储值要求金额"
+#    baseAmount: String
+#    "原始消费金额"
+#    consumeAmount: String
+#    "折扣描述"
+#    description: String
+#    "优惠金额"
+#    discountAmount: String
+#    "消费折扣金额"
+#    discountConsumeAmount: String
+#    "消费折扣利率"
+#    discountRate: Float
+#    "折扣ID"
+#    id: Long!
+#    "折扣类型"
+#    type: CardDiscountType!
+#}
+#
+#type RechargeInfo {
+#    "支付金额"
+#    amount: String
+#    "饭折卡储值 才有卡号 原型图显示只要后4位"
+#    cardNumber: String
+#    "消耗卡赠送金额"
+#    giftAmount: String
+#    "快照: 充值后的金额"
+#    rechargeAfterAmount: String
+#    "充值总金额"
+#    rechargeAmount: String
+#}
+#
+#"解析商户付款码结果"
+#type ResolveMerchantQRResult {
+#    "商户Logo"
+#    logo: String
+#    "商户名称"
+#    merchantName: String
+#    "商户编码"
+#    merchantNumber: String
+#    "商户操作员ID"
+#    merchantOperatorId: String
+#}
+#
+#"折扣规则结果"
+#type RuleResult {
+#    "折扣后金额"
+#    amount: String
+#    "折扣描述"
+#    description: String
+#    "折扣金额"
+#    discountAmount: String
+#    "优惠利率"
+#    discountRate: Float
+#    "原始交易金额"
+#    sourceAmount: String
+#}
+#
+#"商户搜索结果"
+#type SearchResult {
+#    "搜索结果前半部分高亮"
+#    highLightName: String
+#    "搜索内容"
+#    keyword: String
+#    "纬度 仅搜索商户会返回"
+#    lat: String
+#    "经度 仅搜索商户会返回"
+#    lng: String
+#    "搜索结果前半部分"
+#    name: String
+#    "根据结果类型点击的目标ID: 品牌ID/商户ID"
+#    targetId: String
+#    "搜索结果类型:品牌/商户"
+#    type: SearchResultType
+#    "搜索结果后半部分"
+#    value: String
+#}
+#
+#"分享卡的信息"
+#type ShareCardInfo {
+#    cardAmount: String
+#    cardNumber: String
+#    expireTime: Long
+#    fromUser: UserSummary
+#    status: CardTransferStatus
+#}
+#
+#"小程序分享参数"
+#type ShareMiniProgramObject {
+#    "分享码"
+#    code: String
+#    "小程序的 path"
+#    path: String
+#    "小程序的原始 id"
+#    userName: String
+#    "兼容低版本的网页链接"
+#    webpageUrl: String
+#}
+#
+#type SmsResult {
+#    "测试服不真发短信，返回验证码，正式服不返回"
+#    code: String
+#    "回执key"
+#    key: String!
+#}
+#
+#type UserBaseInfo {
+#    "昵称"
+#    name: String!
+#}
+#
+#type UserCardSummary {
+#    "卡总额"
+#    amount: String!
+#    "卡数量"
+#    cardCount: Int!
+#    "折扣总金额"
+#    totalDiscountAmount: String!
+#}
+#
+#type UserCouponPageResult {
+#    list: [UserCouponVo]
+#    pagination: Pagination
+#}
+#
+#type UserCouponVo {
+#    buyAmount: BigDecimal
+#    code: String
+#    couponId: Long
+#    createTime: Long
+#    des: String
+#    disAmount: BigDecimal
+#    disRate: BigDecimal
+#    expireTime: Long
+#    id: Long
+#    miniConsum: BigDecimal
+#    name: String
+#    status: CouponStatus
+#    type: Int
+#    userId: Long
+#    validityDay: Int
+#}
+#
+#type UserSummary {
+#    "头像"
+#    avatar: String
+#    "生日"
+#    birthday: Long
+#    "用户赠送资产"
+#    giftAmount: String
+#    "用户ID"
+#    id: String
+#    "昵称"
+#    name: String
+#    "手机号[微信登陆后通过判断没有手机号开始绑定手机号流程]"
+#    phone: String
+#    "微信昵称,如果有则已绑定微信"
+#    wxName: String
+#}
+#
+#"微信支付订单结果"
+#type WeChatPayOrderResult {
+#    "appId"
+#    appId: String
+#    "随机字符串"
+#    nonceStr: String
+#    "package"
+#    packageStr: String
+#    "商户号"
+#    partnerId: String
+#    "付款ID"
+#    prepayId: String
+#    sign: String
+#    signType: String
+#    "timeStamp"
+#    timeStamp: String
+#    tradeType: String
+#}
+#
+#enum BadgeKey {
+#    "储值提示1"
+#    RECHARGE1
+#    "注册提示1"
+#    REGISTER1
+#    "注册提示2"
+#    REGISTER2
+#}
+#
+#"营业状态"
+#enum BusinessStatus {
+#    Open
+#    Suspend
+#}
+#
+#enum CardDiscountPlanType {
+#    BUY_CARD
+#    RECHARGE
+#}
+#
+#enum CardDiscountType {
+#    "满减"
+#    DISCOUNT
+#    "满送"
+#    GIFT
+#}
+#
+#"卡状态"
+#enum CardStatus {
+#    "已激活"
+#    ACTIVE
+#    "已绑定(小程序)"
+#    BIND
+#    "已注销"
+#    DESTROY
+#    "禁用"
+#    DISABLE
+#    "过期"
+#    EXPIRED
+#    "挂失、冻结"
+#    LOST
+#    "未激活"
+#    NO_ACTIVE
+#}
+#
+#"卡样式"
+#enum CardStyle {
+#    DEFAULT
+#}
+#
+#"卡分享/领取状态"
+#enum CardTransferStatus {
+#    EXPIRED
+#    TRANSFERRED
+#    TRANSFERRING
+#}
+#
+#enum ClientType {
+#    ANDROID
+#}
+#
+#enum CouponStatus {
+#    "已过期"
+#    EXPIRED
+#    "可用"
+#    USEABLE
+#    "已用"
+#    USED
+#}
+#
+#"操作，收藏/取消收藏"
+#enum Operation {
+#    CANCEL
+#    SET
+#}
+#
+#enum OrderPayType {
+#    "支付宝"
+#    ALIPAY
+#    "现金"
+#    CASH
+#    "饭折卡"
+#    FANZHE
+#    "刷卡"
+#    SWIPE
+#    "微信"
+#    WXPAY
+#}
+#
+#enum OrderStatus {
+#    "已过期"
+#    EXPIRED
+#    "处理中"
+#    PROCESSING
+#    "退款"
+#    REFUND
+#    "交易成功"
+#    SUCCESS
+#}
+#
+#enum OrderType {
+#    B2C
+#    C2B
+#}
+#
+#enum PaymentChannelType {
+#    "饭折卡"
+#    fanZhe
+#    "第三方支付"
+#    thirdPartyPayment
+#}
+#
+#enum RemindFrequency {
+#    APP_OPEN
+#    DAILY
+#    MONTHLY
+#    WEEKLY
+#}
+#
+#"搜索结果类型"
+#enum SearchResultType {
+#    BRAND
+#    MERCHANT
+#}
+#
+#enum SmsSceneType {
+#    "微信登陆绑定手机号"
+#    BIND_PHONE
+#    "修改手机号"
+#    CHANGE_PHONE
+#    "手机号登陆"
+#    SMS_LOGIN
+#    "验证手机号"
+#    VERIFY_PHONE
+#}
+#
+#enum TransactionType {
+#    "购卡且充值"
+#    BUY_CARD_RECHARGE
+#    "消费"
+#    CONSUMPTION
+#    "充值"
+#    RECHARGE
+#    "充值且消费"
+#    RECHARGE_CONSUMPTION
+#}
+#
+#enum UpdateAction {
+#    DOWNLOAD
+#    VISIT
+#}
+#
+#enum UpdatePolicy {
+#    FORCE
+#    NO_REMIND
+#    REMIND
+#}
+#
+#"微信登陆绑定手机号参数"
+#input BindPhoneInput {
+#    code: String!
+#    key: String!
+#    phone: String!
+#}
+#
+#"收藏/取消收藏店铺参数"
+#input CollectMerchantInput {
+#    merchantId: String!
+#    operation: Operation!
+#}
+#
+#"添加商户评论"
+#input MerchantReviewsInput {
+#    "内容"
+#    content: String
+#    "图片"
+#    images: String
+#    "加密的商户ID"
+#    merchantId: String!
+#    "分数"
+#    score: Float
+#}
+#
+#"合并卡金额"
+#input MergeCardInput {
+#    "需要合并卡号(多个 逗号(,)分割)"
+#    sourceCard: String!
+#    "合并目标卡号"
+#    targetCard: String!
+#}
+#
+#"短信登陆参数"
+#input SmsLoginInput {
+#    code: String!
+#    key: String!
+#    phone: String!
+#}
+#
+#
+#scalar BigDecimal
+#
+#scalar Long
+#
+#scalar Upload
