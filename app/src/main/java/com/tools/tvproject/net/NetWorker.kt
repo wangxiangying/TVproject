@@ -1,10 +1,7 @@
-package cn.fanzhe.net
+package com.tools.tvproject.net
 
-
-import base.ui.BaseView
+import android.util.Log
 import com.google.gson.Gson
-import com.tools.tvproject.net.Summary
-import com.tools.tvproject.net.okHttpClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -15,8 +12,72 @@ import okhttp3.Request
 import org.json.JSONObject
 
 
+fun getUserDetail(
+    userId: String,
+    callback: (Summary) -> Unit
+) {
+
+    GlobalScope.launch {
+        val str = ("https://api.fanzhe.cn/api/v1/broadcast/get/user/detail")
+        val httpBuilder: HttpUrl.Builder = str.toHttpUrlOrNull()!!.newBuilder()
+        val params = mutableMapOf<String, String>()
+
+        params["Authorization"] =
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVU0VSOjMiLCJsb2dpblNpZ24iOiI5ODE1NjYiLCJuYmYiOjE2NTc3OTI2MTQsInVzZXJUeXBlIjoiVVNFUiIsImV4cCI6NDc3OTg1NjYxNCwidXNlcklkIjoiMyIsImlhdCI6MTY1Nzc5MjYxNH0.uo99c58YQksMnkM6-nDIMlz1yS40gGYwvsmWp3aZUN4"
+
+        params["userId"] = userId
+        params["pageNum"] = "1"
+        params["pageSize"] = "1000000"
+
+
+
+        if (params.isNotEmpty()) {
+            for ((key, value) in params.entries) {
+                httpBuilder.addQueryParameter(key, value)
+            }
+        }
+
+        val request: Request = Request.Builder()
+            .get()
+            .url(httpBuilder.build())
+            .addHeader(
+                "Authorization",
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVU0VSOjMiLCJsb2dpblNpZ24iOiI5ODE1NjYiLCJuYmYiOjE2NTc3OTI2MTQsInVzZXJUeXBlIjoiVVNFUiIsImV4cCI6NDc3OTg1NjYxNCwidXNlcklkIjoiMyIsImlhdCI6MTY1Nzc5MjYxNH0.uo99c58YQksMnkM6-nDIMlz1yS40gGYwvsmWp3aZUN4"
+            )
+            .build()
+
+        try {
+
+            val body = okHttpClient.newCall(request).execute().body?.string()
+
+
+            val json = JSONObject(body.toString())["data"]
+
+
+            if (json != "null") {
+//                val entity: Summary =
+//                    Gson().fromJson(
+//                        json.toString(),
+//                        Summary::class.java
+//                    )
+
+                withContext(Dispatchers.Main) {
+
+                    Log.e("json试试", json.toString())
+//                    callback(entity)
+                }
+            }
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            // optional finally block
+        }
+    }
+}
+
+
 fun getPodcastDailySummary(
-    baseView: BaseView?,
     rechargeTime: Long?,
     consumptionTime: Long?,
     callback: (Summary) -> Unit,
@@ -27,7 +88,7 @@ fun getPodcastDailySummary(
 
         val str = ("https://api.fanzhe.cn/api/v1/broadcast/get/daily_summary")
         val httpBuilder: HttpUrl.Builder = str.toHttpUrlOrNull()!!.newBuilder()
-        val params = mutableMapOf<String, String>();
+        val params = mutableMapOf<String, String>()
 
 
         if (rechargeTime != null) {
@@ -40,12 +101,8 @@ fun getPodcastDailySummary(
         }
 
 
-
         params["Authorization"] =
             "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVU0VSOjMiLCJsb2dpblNpZ24iOiI5ODE1NjYiLCJuYmYiOjE2NTc3OTI2MTQsInVzZXJUeXBlIjoiVVNFUiIsImV4cCI6NDc3OTg1NjYxNCwidXNlcklkIjoiMyIsImlhdCI6MTY1Nzc5MjYxNH0.uo99c58YQksMnkM6-nDIMlz1yS40gGYwvsmWp3aZUN4"
-
-
-
 
 
         if (params.isNotEmpty()) {
@@ -65,7 +122,7 @@ fun getPodcastDailySummary(
 
 
         try {
-            val body = okHttpClient.newCall(request).execute().body?.string();
+            val body = okHttpClient.newCall(request).execute().body?.string()
 
 
             val json = JSONObject(body.toString())["data"]
@@ -82,24 +139,24 @@ fun getPodcastDailySummary(
 
                 withContext(Dispatchers.Main) {
                     callback(entity)
+                    Log.e("json DailySummary", json.toString())
                 }
 
             }
 
         } catch (e: Exception) {
-            e.printStackTrace();
+            e.printStackTrace()
 
         } finally {
             // optional finally block
         }
-
 
     }
 
 }
 
 
-//fun getPodcastDailySummary(
+//fun com.tools.tvproject.net.getPodcastDailySummary(
 //    baseView: BaseView?,
 //    rechargeTime: Long?,
 //    consumptionTime:Long?,

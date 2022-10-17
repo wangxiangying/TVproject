@@ -84,15 +84,12 @@ class ConsumptionsAdapter(val context: Context, private val dataSet: MutableList
                     .into(viewHolder.userIV)
 
                 viewHolder.userName.text = userName?.trim().toString()
-
-
                 Picasso.get()
                     .load(merchantLogo)
                     .resize(45, 45)
                     .centerCrop()
                     .into(viewHolder.iconImage)
             }
-
         }
 
     }

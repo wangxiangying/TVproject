@@ -87,7 +87,11 @@ data class Consume(
 
     var lat: Double? = null,
 
-    var lng: Double? = null
+    var lng: Double? = null,
+
+    var userId:String? = null,
+
+    var merchantId:String? = null,
 
 ) {
     fun getLatLng(): LatLng? {

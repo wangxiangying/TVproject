@@ -49,7 +49,6 @@ class RechargeAdapter(private val dataSet: MutableList<Consume>) :
         return dataSet.size
     }
 
-
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item

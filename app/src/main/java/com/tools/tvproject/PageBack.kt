@@ -17,7 +17,7 @@
 //import androidx.recyclerview.widget.LinearLayoutManager
 //import androidx.recyclerview.widget.RecyclerView
 //import base.ui.BaseView
-//import cn.fanzhe.net.getPodcastDailySummary
+//import cn.fanzhe.net.com.tools.tvproject.net.getPodcastDailySummary
 //import com.amap.api.maps.*
 //import com.amap.api.maps.model.*
 //import com.amap.api.services.district.DistrictItem
@@ -762,7 +762,7 @@
 //
 //            Log.e("start", times.toString())
 //
-//            getPodcastDailySummary(this@PageBack, rechargeTimeLong, consumptionTimeLong) { data ->
+//            com.tools.tvproject.net.getPodcastDailySummary(this@PageBack, rechargeTimeLong, consumptionTimeLong) { data ->
 //
 //                val newCount = data.newUsersNumber() ?: 0
 //                if (newCount > lastPeopleCount) {  //新增用户播放声音
@@ -906,7 +906,7 @@
 //                }
 //            }
 //
-////            getPodcastDailySummary(this@Page, rechargeTimeLong,consumptionTimeLong) { data ->
+////            com.tools.tvproject.net.getPodcastDailySummary(this@Page, rechargeTimeLong,consumptionTimeLong) { data ->
 ////
 ////                val newCount = data.newUsersNumber() ?: 0
 ////                if (newCount > lastPeopleCount) {

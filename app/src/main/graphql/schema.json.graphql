@@ -842,7 +842,7 @@
 #    "获取饭折支付方式列表"
 #    getPaymentChannel: [PaymentChannel]
 #    "播报每日汇总"
-#    getPodcastDailySummary(
+#    com.tools.tvproject.net.getPodcastDailySummary(
 #        "消费时间戳"
 #        consumptionTime: Long,
 #        "充值时间戳"

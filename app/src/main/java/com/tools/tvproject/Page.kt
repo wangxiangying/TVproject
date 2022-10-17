@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import base.ui.BaseView
-import cn.fanzhe.net.getPodcastDailySummary
+import com.tools.tvproject.net.getPodcastDailySummary
+//import com.tools.tvproject.net.getUserDetail
 //import com.amap.api.maps.AMap
 //import com.amap.api.maps.CameraUpdateFactory
 //import com.amap.api.maps.MapView
@@ -34,8 +35,8 @@ open class Page : AppCompatActivity(), BaseView {
 
     var isADDed = false
 
-    val char1 = "(";
-    val char2 = "（";
+    private val char1 = "(";
+    private val char2 = "（";
 
     private val unit = "元"
 
@@ -281,10 +282,16 @@ open class Page : AppCompatActivity(), BaseView {
         val d1 = Date(time)
         val t1: String = format.format(d1)
         timeView.text = t1
+
+
+//        getUserDetail("88137") {
+//
+//
+//        }
+
     }
 
-    private var oldListMerchantTemp = HashMap<String, Int>()
-
+//    private var oldListMerchantTemp = HashMap<String, Int>()
 //    private fun setMapMarker(consumer: Consume) {
 //
 //        consumer.merchantName?.let {
@@ -459,7 +466,6 @@ open class Page : AppCompatActivity(), BaseView {
 
 
         getPodcastDailySummary(
-            this@Page,
             rechargeTime,
             consumptionTime
         ) { data ->
@@ -513,7 +519,6 @@ open class Page : AppCompatActivity(), BaseView {
                         AutoIncrementUtil.INTTYPE
                     ).apply(::operation)
 
-
                 } else {
 
                     list[0].smallTitle.text = i0.toString()
@@ -535,19 +540,12 @@ open class Page : AppCompatActivity(), BaseView {
 
                 listMerchTopCount = getTopList(data.merchants)
 
+                var names = ""
 
-                var names=""
+                listMerchTopCount.forEach {
 
-                listMerchTopCount.forEach{
-
-
-                    names+=it.totalConsumption.toString()+"  "
-
+                    names += it.totalConsumption.toString() + "  "
                 }
-
-                Log.e("  !!!!!!! ",names)
-
-
 
                 if (initIt) {
 
@@ -570,14 +568,19 @@ open class Page : AppCompatActivity(), BaseView {
                     merchantAdapter.notifyDataSetChanged()
 
 
-
-
                 } else {
-
-
 
                     listRechargeTemp.forEach {
                         rechargeAdapter.addItem(it)
+
+
+//                        it.userId?.let { it1 ->
+//                            getUserDetail(it1) {
+//
+//
+//                            }
+//                        }
+
                         it.amount?.let { it1 -> Speak(it.userName, it1.toInt()) }
                     }
 
@@ -625,6 +628,7 @@ open class Page : AppCompatActivity(), BaseView {
                     if (rechargeTime == null || rechargeTime!! < newTime) {
                         rechargeTime = newTime
                     }
+
                 }
 
                 listConsumptionsTemp.forEach {
@@ -640,7 +644,6 @@ open class Page : AppCompatActivity(), BaseView {
 
                 consumerCount.text = "消费店铺 （" + countlistMerch.count() + "家）";
 
-
             }
         }
     }
@@ -648,7 +651,7 @@ open class Page : AppCompatActivity(), BaseView {
 
     fun getTopList(merchants: List<Consume>): MutableList<Consume> {
 
-        listTopMap.clear();
+        listTopMap.clear()
 
         val list: MutableList<Consume> = mutableListOf()  //店铺消费总榜
 
@@ -684,7 +687,6 @@ open class Page : AppCompatActivity(), BaseView {
         if (count > 8) {
             count = 8
         }
-
 
 
         return list.subList(0, count)
